@@ -66,5 +66,21 @@ namespace Turnos.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Insertar()
+        {  return View(); }
+
+        [HttpPost]
+        public async Task<IActionResult> Insertar([Bind("IdEspecialidad, Descripcion")] Especialidad especialidad)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(especialidad);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
+        }
     }
 }
