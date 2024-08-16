@@ -1,0 +1,20 @@
+﻿@model Turnos.Models.Especialidad
+
+<h3>La especialidad seleccionada se eliminara, ¿desea continuar?</h3>
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Descripcion)
+        </dd>
+    </dl>
+    <form asp-action="Eliminar">
+        <input type="hidden" asp-for="IdEspecialidad"/>
+        <input type="submit" value="Eliminar" />
+    </form>
+    <div>
+        <a asp-action="Index">Regresar</a>
+    </div>
+</div>

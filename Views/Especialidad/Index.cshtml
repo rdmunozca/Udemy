@@ -1,0 +1,28 @@
+@model IEnumerable<Turnos.Models.Especialidad>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion) 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @*Aqui va la info *@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.IdEspecialidad">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Eliminar" asp-route-id="@item.IdEspecialidad">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
